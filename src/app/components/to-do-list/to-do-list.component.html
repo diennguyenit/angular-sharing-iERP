@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="form-container">
+    <input type="text" [(ngModel)]="currentTitle" />
+    <button class="btn btn-primary" (click)="save()">Lưu</button>
+  </div>
+
+  @for(item of toDoList; track item.id) {
+  <div class="list-container">
+    <div class="to-do-item">
+      <app-to-do [toDo]="item"></app-to-do>
+    </div>
+    <button (click)="presentEdit(item)">Chỉnh sửa</button>
+    <button (click)="delete(item)">Xóa</button>
+  </div>
+  }
+</div>

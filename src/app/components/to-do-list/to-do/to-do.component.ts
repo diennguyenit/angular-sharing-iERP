@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ToDo } from '../../../models';
 
 @Component({
   selector: 'app-to-do',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './to-do.component.scss'
 })
 export class ToDoComponent {
-  @Input() toDo;
+  @Input() toDo: ToDo;
 }

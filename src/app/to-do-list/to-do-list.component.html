@@ -1,8 +1,0 @@
-<div>
-    <input type="text" [(ngModel)]="newToDo">
-    <button class="btn btn-primary" (click)="create()">Tạo mới</button>
-</div>
-
-@for(item of toDoList; track item.name) {
-    <app-to-do [toDo]="item"></app-to-do>
-}

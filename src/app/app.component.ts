@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { Component } from '@angular/core';
+import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ToDoListComponent],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  
-}
+export class AppComponent {}
