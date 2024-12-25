@@ -1,10 +1,65 @@
-<p-table [value]="employees" [tableStyle]="{ 'min-width': '50rem' }">
-  <ng-template #header>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Quantity</th>
-    </tr>
-  </ng-template>
-</p-table>
+<p-card>
+  <form
+    [formGroup]="form"
+    class="flex justify-content-center align-items-center flex-direction-column"
+  >
+    <div>
+      <label>Mã NV</label>
+      <input type="text" pInputText formControlName="empNo" />
+    </div>
+    <div>
+      <label>Tên NV</label>
+      <input type="text" pInputText formControlName="eName" />
+    </div>
+    <div>
+      <label>Công việc</label>
+      <input type="text" pInputText formControlName="job" />
+    </div>
+    <div>
+      <label>Ngày vào làm</label>
+      <p-datepicker formControlName="hireDate" />
+    </div>
+    <div>
+      <label>Lương</label>
+      <p-inputnumber
+        formControlName="sal"
+        inputId="minmaxfraction"
+        mode="decimal"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="5"
+      />
+    </div>
+    <div>
+      <p-button icon="pi pi-check" label="Lưu" (onClick)="save()" />
+    </div>
+  </form>
+</p-card>
+
+<p-card>
+  <p-table
+    [value]="employees"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+  >
+    <ng-template #header>
+      <tr>
+        <th>Mã NV</th>
+        <th>Họ và tên</th>
+        <th>Ngày vào làm</th>
+        <th>Vị trí</th>
+        <th>Mức Lương</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-employee>
+      <tr>
+        <td>{{ employee.empno }}</td>
+        <td>{{ employee.ename }}</td>
+        <td>{{ employee.hiredate }}</td>
+        <td>{{ employee.job }}</td>
+        <td>{{ employee.sal }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
